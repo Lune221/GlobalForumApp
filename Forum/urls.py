@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import path
 from .views import *
 urlpatterns = [
-    path("home", index, name="home"),
     path("creer", create, name="createPub"),
     path("voir/<int:id>", read, name="readMore"),
     path("modifier/<int:id>", modify, name="edit"),
