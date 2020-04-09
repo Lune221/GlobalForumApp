@@ -1,0 +1,61 @@
+{% extends 'Forum/base.html' %}
+
+{% block content %}
+    <header class="masthead bg-primary text-white text-center">
+        <div class="container d-flex align-items-center flex-column">
+            <h1 class="masthead-heading mb-0">{{ pub.Title }}</button></h1>
+            {% if pub.Pub_User == request.user %}
+                <h1 class="masthead-heading text-uppercase mb-0"><a href="{% url 'edit' id=pub.pk %}"><button type="button" class="btn btn-primary">Modifier</button></a></h1>
+            {% endif %}
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+        </div>
+    </header>
+    <!-- Card -->
+    <div class="container" style="margin-top: 10px; margin-bottom: 20px;">
+        <div class="card promoting-card">
+            <!-- Card content -->
+            <div class="card-body d-flex flex-row">
+                <!-- Avatar -->
+                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg" class="rounded-circle mr-3" height="50px" width="50px" alt="avatar">
+            
+                <!-- Content -->
+                <div>
+                    <!-- Title -->
+                    <h5 class="card-title font-weight-bold mb-2">Par {{ pub.Pub_User }}</h5>
+                    <!-- Subtitle -->
+                    <p class="card-text"><i class="far fa-clock pr-2"></i>Le {{ pub.Pub_Date }}</p>
+                    <p class="card-text"><i class="far fa-clock pr-2"></i>Dernière Modification {{ pub.Last_Modif }}</p>
+            
+                </div>
+            </div>
+            <!-- Card content -->
+            <div class="card-body">
+                <div class="collapse-content">
+            
+                    <!-- Text -->
+                    <p class="card-text">
+                        {{ pub.Content|linebreaks }}
+                    </p>
+                    <!-- Button -->
+                    <i class="fas fa-share-alt text-muted float-right p-1 my-1" data-toggle="tooltip" data-placement="top" title="Share this post"></i>
+                    <i class="fas fa-heart text-muted float-right p-1 my-1 mr-3" data-toggle="tooltip" data-placement="top" title="I like it"></i>
+            
+                </div>
+            
+            </div>
+            <div class="progress md-progress" style="margin: 2px;">
+                <div class="progress-bar bg-primary" role="progressbar" style="width: {{ progress }}%;" aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        
+        </div>
+    </div>
+  <!-- Card -->
+
+    
+
+{% endblock content %}

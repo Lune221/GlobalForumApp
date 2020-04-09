@@ -1,0 +1,49 @@
+{% extends 'Forum/base.html' %}
+
+{% block content %}
+    <header class="masthead bg-primary text-white text-center">
+        <div class="container d-flex align-items-center flex-column">
+            {% if pub.id %}
+            <h1 class="masthead-heading text-uppercase mb-0">MODIFIER LA PUBLICATION</h1>
+            {% else %}
+            <h1 class="masthead-heading text-uppercase mb-0">CREER UNE PUBLICATION</h1>
+            {% endif %}
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Masthead Subheading-->
+        </div>
+        <div class="container">
+            <form action="" method="post">
+            {% csrf_token %}
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Titre</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Renseigner le titre de la publication" name="Title" value="{{ pub.Title }}">
+                </div>
+                <div class="form-group">
+                    <label for="Theme">Theme</label>
+                    <select name="Theme" id="Theme" class="browser-default custom-select">
+                        <option value="Sport">Sport</option>
+                        <option value="Art">Art</option>
+                        <option value="Science">Science</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Content">Contenu</label>
+                    <textarea class="form-control" aria-label="With textarea" id="Content" name="Content" >{{ pub.Content }}</textarea>
+                </div>
+                <div class="input-group-prepend">
+                    <button class="btn btn-md btn-default m-0 px-3" type="submit" id="MaterialButton-addon1">Valider</button>
+                </div>
+            </form>
+        </div>
+    
+    </header>
+
+{% endblock content %}
+
+
+    
