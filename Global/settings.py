@@ -25,7 +25,7 @@ SECRET_KEY = 'niob17na%3cd*-%e_w*(53-fhk@wlnt-5$g3#=$_eg(zso6r&i'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 

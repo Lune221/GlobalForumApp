@@ -23,7 +23,7 @@ def create(request):
             Theme = request.POST['Theme']
         )
         pub.save()
-        return HttpResponse("Publication crée")
+        return redirect("readMore", pub.id)
 
     return render(request, "Forum/form.html")
 
