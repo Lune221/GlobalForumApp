@@ -19,9 +19,13 @@ def create(request):
         pub = Publication(
             Title = request.POST['Title'],
             Content = request.POST['Content'],
-            Pub_User = request.user,
             Theme = request.POST['Theme']
         )
+        if not request.user:
+            pub.Pub_User = request.POST["user"]
+        else : 
+            pub.Pub_User = request.user
+            
         pub.save()
         return redirect("readMore", pub.id)
 

@@ -19,6 +19,13 @@
         <div class="container">
             <form action="" method="post">
             {% csrf_token %}
+                {% if request.user|length == 0 %}
+                
+                <div class="form-group">
+                    <label for="user">Pseudonyme</label>
+                    <input type="text" class="form-control" id="user" placeholder="Entrer un pseudonyme" name="user" value="{{ pub.user }}">
+                </div>
+                {% endif %}
                 <div class="form-group">
                     <label for="formGroupExampleInput">Titre</label>
                     <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Renseigner le titre de la publication" name="Title" value="{{ pub.Title }}">
@@ -33,7 +40,7 @@
                 </div>
                 <div class="form-group">
                     <label for="Content">Contenu</label>
-                    <textarea class="form-control" aria-label="With textarea" id="Content" name="Content" >{{ pub.Content }}</textarea>
+                    <textarea class="form-control" aria-label="With textarea" id="Content" name="Content" rows="10">{{ pub.Content }}</textarea>
                 </div>
                 <div class="input-group-prepend">
                     <button class="btn btn-md btn-default m-0 px-3" type="submit" id="MaterialButton-addon1">Valider</button>
