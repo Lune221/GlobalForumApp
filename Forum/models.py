@@ -14,7 +14,7 @@ class Publication(models.Model):
     Likes = models.IntegerField(default=0)
     Dislikes = models.IntegerField(default=0)
     Resolved = models.BooleanField(default=False)
-    Pub_User = models.ForeignKey(User, on_delete=models.CASCADE)
+    Pub_User = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     Theme = models.CharField(max_length=20, choices=CHOICES)
     Pub_Date = models.DateTimeField(auto_now_add=True)
     Last_Modif = models.DateTimeField(auto_now =True)

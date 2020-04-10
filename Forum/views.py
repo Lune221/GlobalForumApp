@@ -21,11 +21,10 @@ def create(request):
             Content = request.POST['Content'],
             Theme = request.POST['Theme']
         )
-        if not request.user:
-            pub.Pub_User = request.POST["user"]
-        else : 
+        if isinstance(request.user, User):
             pub.Pub_User = request.user
             
+
         pub.save()
         return redirect("readMore", pub.id)
 

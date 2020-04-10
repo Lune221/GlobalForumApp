@@ -26,7 +26,13 @@
                 <!-- Content -->
                 <div>
                     <!-- Title -->
-                    <h5 class="card-title font-weight-bold mb-2">Par {{ pub.Pub_User }}</h5>
+                    <h5 class="card-title font-weight-bold mb-2">Par 
+                    {% if pub.Pub_User %}
+                    {{ pub.Pub_User }}
+                    {% else %}
+                    Anomyme
+                    {% endif %}
+                    </h5>
                     <!-- Subtitle -->
                     <p class="card-text"><i class="far fa-clock pr-2"></i>Le {{ pub.Pub_Date }}</p>
                     <p class="card-text"><i class="far fa-clock pr-2"></i>Dernière Modification {{ pub.Last_Modif }}</p>
